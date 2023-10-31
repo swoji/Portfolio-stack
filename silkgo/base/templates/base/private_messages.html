@@ -1,0 +1,48 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<main class="layout layout--3">
+    <div class="container">
+        <div class="roomList__header">
+            <div>
+                <h2>Inbox</h2>
+            </div>
+            <div class="private-messages">
+                <h2>Compose a New Message</h2>
+                <form method="post">
+                    {% csrf_token %}
+                    <label for="receiver">To:</label>
+                    <select name="receiver" required>
+                        <option value="" selected>Select a user</option>
+                        {% for user in users %}
+                            <option value="{{user.id}}">{{user.username}}</option>
+                        {% endfor %}
+                    </select>
+                    <hr>
+                    <label for="message_body">Message:</label>
+                    <textarea name="message_body" rows="4" cols="50" required></textarea>
+                    <hr>
+                    <button type="submit">Send</button>
+                </form>
+                <h2>Your Messages</h2>
+                <ul>
+                    {% for message in private_messages %}
+                        <li>
+                            <strong>From: {{message.sender.username}}</strong><br>
+                            {{message.body}}<br>
+                            <small>Sent at: {{message.created}}</small>
+                        </li>
+                    {% endfor %}    
+                </ul>
+                
+            </div>            
+            <a class="btn btn--main" href="{% url 'private-messages' %}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
+                    <path d="M10 25h80c5.5 0 10 4.5 10 10v40c0 5.5-4.5 10-10 10H10c-5.5 0-10-4.5-10-10V35c0-5.5 4.5-10 10-10zm0 10v30h80V35H10zm46.7 19.6c-1.2-1.2-3.2-1.2-4.4 0L40 53.3 31.7 45 10 66.7h80L68.3 45 60 53.3l-3.3-3.7z" />
+                </svg>
+                Inbox
+            </a>
+        </div>
+    </div>
+</main>
+{% endblock content %}
