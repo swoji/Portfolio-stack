@@ -13,7 +13,7 @@ It was based off the basic characteristics of channels in Discord platform.
 --> Clone the repository using the command below :
 
 ```bash
-git clone https://github.com/Portfolio-stack/silkgo.git
+git clone https://github.com/swoji/Portfolio-stack.git
 
 ```
 
