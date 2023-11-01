@@ -1,0 +1,9 @@
+asgiref==3.7.2
+autopep8==1.5.7
+Django==4.2.6
+django-cors-headers
+djangorestframework==3.14.0
+Pillow==10.1.0
+pycodestyle==2.7.0
+sqlparse==0.4.4
+pytz
