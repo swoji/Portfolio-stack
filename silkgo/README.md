@@ -6,7 +6,7 @@ It was based off the basic characteristics of channels in Discord platform.
 
 ## Architecture
 
-![](./readme_images/system_design.png)
+![](./readme_images/web-stack.PNG)
 
 ### Cloning the repository
 
